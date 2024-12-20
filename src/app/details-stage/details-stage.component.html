@@ -1,0 +1,15 @@
+<p>details-stage works!</p>
+<div class="container">
+  <h2>Détails du Stage</h2>
+
+  <div *ngIf="stageDetais">
+    <p><strong>ID:</strong> {{ stageDetais.id }}</p>
+    <p><strong>Titre:</strong> {{ stageDetais.titre }}</p>
+    <p><strong>Description:</strong> {{ stageDetais.description }}</p>
+    <p><strong>Entreprise:</strong> {{ stageDetais.entreprise }}</p>
+    <p><strong>Disponible:</strong> {{ stageDetais.disponible ? 'Oui' : 'Non' }}</p>
+    <p><strong>Nombre d'intérêts:</strong> {{ stageDetais.nbrInteresse }}</p>
+  </div>
+
+</div>
+

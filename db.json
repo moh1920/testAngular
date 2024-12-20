@@ -1,0 +1,21 @@
+{
+  "stages": [
+    {
+      "id": "9f6c",
+      "titre": "dev",
+      "description": "sds",
+      "entreprise": "wivio",
+      "disponible": true,
+      "nbrInteresse": 0
+    },
+    {
+      "id": "de22",
+      "titre": "dev",
+      "description": "qwqws",
+      "entreprise": "wivio",
+      "disponible": true,
+      "nbrInteresse": 0
+    }
+  ],
+  "etudiants": []
+}

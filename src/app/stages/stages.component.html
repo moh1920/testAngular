@@ -1,0 +1,44 @@
+<p>stages works!</p>
+<div class="container">
+  <h2>Liste des Stages</h2>
+  <label for="search">Rechercher un stage :</label>
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    [(ngModel)]="searchKeyword"
+    (input)="filterStages()"
+    placeholder="Rechercher par description...">
+
+
+
+  <!-- Affichage des stages sous forme de tableau -->
+  <table *ngIf="filteredStages.length > 0" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Entreprise</th>
+        <th>Disponible</th>
+        <th>Nombre d'intérêts</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stage of filteredStages">
+        <td>{{ stage.id }}</td>
+        <td>{{ stage.titre }}</td>
+        <td>{{ stage.description }}</td>
+        <td>{{ stage.entreprise }}</td>
+        <td>{{ stage.disponible ? 'Oui' : 'Non' }}</td>
+        <td>{{ stage.nbrInteresse }}</td>
+        <td>
+          <a (click)="deleteStage(stage.id)">Supprimer</a> |
+          <a [routerLink]="['/stage-details', stage.id]" class="btn btn-info">Détails</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

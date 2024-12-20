@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <h2>Ajouter un stage</h2>
+  <form [formGroup]="stage" (ngSubmit)="onSubmit()">
+    <!-- Champ Titre -->
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" id="titre" class="form-control" formControlName="titre" />
+      <div *ngIf="stage.get('titre')?.invalid && stage.get('titre')?.touched" class="text-danger">
+        Le titre est requis.
+      </div>
+    </div>
+
+    <!-- Champ Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+      <div *ngIf="stage.get('description')?.errors?.['required'] && stage.get('description')?.touched" class="text-danger">
+        La description est obligatoire.
+      </div>
+      <div *ngIf="stage.get('description')?.errors?.['minlength'] && stage.get('description')?.touched" class="text-danger">
+        La description doit contenir au moins 3 caractères.
+      </div>
+    </div>
+
+    <!-- Champ Entreprise -->
+    <div class="form-group">
+      <label for="entreprise">Entreprise</label>
+      <input type="text" id="entreprise" class="form-control" formControlName="entreprise" />
+      <div *ngIf="stage.get('entreprise')?.errors?.['required'] && stage.get('entreprise')?.touched" class="text-danger">
+        Le champ entreprise est obligatoire.
+      </div>
+      <div *ngIf="stage.get('entreprise')?.errors?.['pattern'] && stage.get('entreprise')?.touched" class="text-danger">
+        Le nom de l'entreprise doit commencer par une lettre majuscule.
+      </div>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="btn btn-success mt-3" [disabled]="stage.invalid">
+      Ajouter le stage
+    </button>
+  </form>
+</div>

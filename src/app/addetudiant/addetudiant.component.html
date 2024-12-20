@@ -1,0 +1,70 @@
+<div class="container">
+  <h2>Ajouter un Étudiant</h2>
+  <form [formGroup]="etudiantForm" (ngSubmit)="onSubmit()">
+
+    <!-- Champ Nom -->
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input
+        id="nom"
+        type="text"
+        class="form-control"
+        formControlName="nom"
+        placeholder="Entrez le nom de l'étudiant"
+      />
+      <div *ngIf="etudiantForm.get('nom')?.invalid && etudiantForm.get('nom')?.touched" class="text-danger">
+        Nom est obligatoire.
+      </div>
+    </div>
+
+    <!-- Champ Prénom -->
+    <div class="form-group">
+      <label for="prenom">Prénom</label>
+      <input
+        id="prenom"
+        type="text"
+        class="form-control"
+        formControlName="prenom"
+        placeholder="Entrez le prénom de l'étudiant"
+      />
+      <div *ngIf="etudiantForm.get('prenom')?.invalid && etudiantForm.get('prenom')?.touched" class="text-danger">
+        Prénom est obligatoire.
+      </div>
+    </div>
+
+    <!-- Champ Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Entrez l'email de l'étudiant"
+      />
+      <div *ngIf="etudiantForm.get('email')?.invalid && etudiantForm.get('email')?.touched" class="text-danger">
+        Entrez un email valide.
+      </div>
+    </div>
+
+    <!-- Champ Téléphone -->
+    <div class="form-group">
+      <label for="telephone">Téléphone</label>
+      <input
+        id="telephone"
+        type="text"
+        class="form-control"
+        formControlName="telephone"
+        placeholder="Entrez le numéro de téléphone"
+      />
+      <div *ngIf="etudiantForm.get('telephone')?.invalid && etudiantForm.get('telephone')?.touched" class="text-danger">
+        Entrez un numéro valide.
+      </div>
+    </div>
+
+    <!-- Bouton Soumettre -->
+    <button [disabled]="etudiantForm.invalid" type="submit" class="btn btn-primary">
+      Ajouter
+    </button>
+  </form>
+</div>
